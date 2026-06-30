@@ -386,6 +386,7 @@
   const form = document.getElementById('contactForm');
   const formMsg = document.getElementById('formMsg');
 
+  if (form && formMsg) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
@@ -423,6 +424,7 @@
       formMsg.className = 'form-msg';
     }
   });
+  }
 
   /* ==========================================================
      8. Pause marquee on hover

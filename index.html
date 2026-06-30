@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KuaiLJ | 全栈开发者</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- ========== 粒子背景 ========== -->
+  <canvas id="particles"></canvas>
+
+  <!-- ========== 导航栏 ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">KLJ<span class="accent">.</span></a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">关于</a>
+        <a href="#skills" class="nav-link">技能</a>
+        <a href="#projects" class="nav-link">项目</a>
+        <a href="#contact" class="nav-link">联系</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button class="mobile-menu" id="mobileMenu" aria-label="菜单">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== Hero 区 ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-avatar">
+        <div class="avatar-ring"></div>
+        <div class="avatar-inner">
+          <span>KLJ</span>
+        </div>
+      </div>
+      <h1 class="hero-title">
+        你好，我是 <span class="gradient-text">KuaiLJ</span>
+      </h1>
+      <div class="hero-subtitle">
+        <span class="typing-wrapper">
+          <span id="typing"></span><span class="cursor">|</span>
+        </span>
+      </div>
+      <p class="hero-desc">热爱构建优雅的 Web 应用，专注全栈开发与 AI 工具链</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-rocket"></i> 查看作品
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-paper-plane"></i> 联系我
+        </a>
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/kuailj1117-eng" target="_blank" class="social-link" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:kuailj@163.com" class="social-link" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="#" class="social-link" title="微信">
+          <i class="fab fa-weixin"></i>
+        </a>
+        <a href="#" class="social-link" title="CSDN">
+          <i class="fas fa-blog"></i>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>向下滚动</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ========== About 区 ========== -->
+  <section class="about section" id="about">
+    <div class="section-header">
+      <h2 class="section-title">关于我</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="glass-card about-card">
+        <div class="about-icon"><i class="fas fa-user-graduate"></i></div>
+        <h3>教育背景</h3>
+        <p>计算机科学与技术 · 本科</p>
+        <p class="card-sub">热爱技术探索，持续学习成长</p>
+      </div>
+      <div class="glass-card about-card">
+        <div class="about-icon"><i class="fas fa-code"></i></div>
+        <h3>开发经验</h3>
+        <p>全栈 Web 开发</p>
+        <p class="card-sub">React / Vue / Node.js / PHP</p>
+      </div>
+      <div class="glass-card about-card">
+        <div class="about-icon"><i class="fas fa-brain"></i></div>
+        <h3>AI & 工具链</h3>
+        <p>AI 辅助开发实践者</p>
+        <p class="card-sub">Claude Code / Copilot / Vibe Coding</p>
+      </div>
+      <div class="glass-card about-card">
+        <div class="about-icon"><i class="fas fa-heart"></i></div>
+        <h3>兴趣领域</h3>
+        <p>开源贡献 · 技术写作</p>
+        <p class="card-sub">工具类产品 · 开发者体验</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Skills 区 ========== -->
+  <section class="skills section" id="skills">
+    <div class="section-header">
+      <h2 class="section-title">技术栈</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-categories">
+      <!-- 前端 -->
+      <div class="glass-card skill-group">
+        <h3><i class="fas fa-desktop"></i> 前端</h3>
+        <div class="skill-tags">
+          <span class="skill-tag" data-level="95">HTML5</span>
+          <span class="skill-tag" data-level="90">CSS3</span>
+          <span class="skill-tag" data-level="88">JavaScript</span>
+          <span class="skill-tag" data-level="80">React</span>
+          <span class="skill-tag" data-level="75">Vue.js</span>
+          <span class="skill-tag" data-level="70">TypeScript</span>
+        </div>
+      </div>
+
+      <!-- 后端 -->
+      <div class="glass-card skill-group">
+        <h3><i class="fas fa-server"></i> 后端</h3>
+        <div class="skill-tags">
+          <span class="skill-tag" data-level="85">Node.js</span>
+          <span class="skill-tag" data-level="80">PHP</span>
+          <span class="skill-tag" data-level="78">Python</span>
+          <span class="skill-tag" data-level="72">MySQL</span>
+          <span class="skill-tag" data-level="65">Redis</span>
+        </div>
+      </div>
+
+      <!-- 工具 -->
+      <div class="glass-card skill-group">
+        <h3><i class="fas fa-tools"></i> 工具 & 平台</h3>
+        <div class="skill-tags">
+          <span class="skill-tag" data-level="90">Git</span>
+          <span class="skill-tag" data-level="85">VS Code</span>
+          <span class="skill-tag" data-level="82">Linux</span>
+          <span class="skill-tag" data-level="78">Docker</span>
+          <span class="skill-tag" data-level="88">GitHub</span>
+          <span class="skill-tag" data-level="75">Vercel</span>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="glass-card skill-group">
+        <h3><i class="fas fa-robot"></i> AI & 自动化</h3>
+        <div class="skill-tags">
+          <span class="skill-tag" data-level="88">Claude Code</span>
+          <span class="skill-tag" data-level="82">Copilot</span>
+          <span class="skill-tag" data-level="70">MCP 协议</span>
+          <span class="skill-tag" data-level="75">Prompt Eng</span>
+          <span class="skill-tag" data-level="68">自动化部署</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Projects 区 ========== -->
+  <section class="projects section" id="projects">
+    <div class="section-header">
+      <h2 class="section-title">项目作品</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="web">Web 应用</button>
+      <button class="filter-btn" data-filter="tool">工具</button>
+      <button class="filter-btn" data-filter="ai">AI 项目</button>
+      <button class="filter-btn" data-filter="game">游戏</button>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Dev工具箱 -->
+      <div class="glass-card project-card" data-category="web tool">
+        <div class="project-img">
+          <i class="fas fa-toolbox"></i>
+        </div>
+        <div class="project-info">
+          <h3>Dev 工具箱</h3>
+          <p>26 个在线开发工具集合：编码解码、加密哈希、单位换算、文本处理</p>
+          <div class="project-tech">
+            <span>HTML5</span><span>CSS3</span><span>Node.js</span><span>Vercel</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kuailj1117-eng/demo-deploy" target="_blank"><i class="fab fa-github"></i> 源码</a>
+            <a href="https://demo-deploy-ashy.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i> 演示</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 手语识别 -->
+      <div class="glass-card project-card" data-category="ai">
+        <div class="project-img">
+          <i class="fas fa-hand-paper"></i>
+        </div>
+        <div class="project-info">
+          <h3>手势识别系统</h3>
+          <p>OpenCV 实时手势识别：手指计数、虚拟鼠标、绘画板、石头剪刀布游戏</p>
+          <div class="project-tech">
+            <span>Python</span><span>OpenCV</span><span>NumPy</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kuailj1117-eng/hand-gesture" target="_blank"><i class="fab fa-github"></i> 源码</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 太空战机 -->
+      <div class="glass-card project-card" data-category="game">
+        <div class="project-img">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="project-info">
+          <h3>太空战机游戏</h3>
+          <p>Pygame 太空射击游戏，支持键盘和手势两种操控方式，多波敌人系统</p>
+          <div class="project-tech">
+            <span>Python</span><span>Pygame</span><span>OpenCV</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kuailj1117-eng/space-war" target="_blank"><i class="fab fa-github"></i> 源码</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 校园二手 -->
+      <div class="glass-card project-card" data-category="web">
+        <div class="project-img">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="project-info">
+          <h3>校园二手市场</h3>
+          <p>PHP REST API + 原生 JS SPA，毛玻璃 UI，完整的电商功能</p>
+          <div class="project-tech">
+            <span>PHP</span><span>MySQL</span><span>JS SPA</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kuailj1117-eng/second-hand-market" target="_blank"><i class="fab fa-github"></i> 源码</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 视频生成 MCP -->
+      <div class="glass-card project-card" data-category="ai tool">
+        <div class="project-img">
+          <i class="fas fa-film"></i>
+        </div>
+        <div class="project-info">
+          <h3>AI 视频生成器</h3>
+          <p>MCP 协议服务器，Claude Code 可直接调用生成文字动画/图片幻灯视频</p>
+          <div class="project-tech">
+            <span>Python</span><span>MCP</span><span>MoviePy</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kuailj1117-eng/video-agent" target="_blank"><i class="fab fa-github"></i> 源码</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 技能文档生成 -->
+      <div class="glass-card project-card" data-category="tool ai">
+        <div class="project-img">
+          <i class="fas fa-file-word"></i>
+        </div>
+        <div class="project-info">
+          <h3>技能文档生成器</h3>
+          <p>自动读取 Claude Code Skills 配置，生成中文 Word 技能使用手册</p>
+          <div class="project-tech">
+            <span>Python</span><span>python-docx</span><span>Claude API</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kuailj1117-eng/skills-doc" target="_blank"><i class="fab fa-github"></i> 源码</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Stats 区 ========== -->
+  <section class="stats section" id="stats">
+    <div class="stats-grid">
+      <div class="glass-card stat-card">
+        <div class="stat-number" data-target="6">0</div>
+        <div class="stat-label">完成项目</div>
+      </div>
+      <div class="glass-card stat-card">
+        <div class="stat-number" data-target="26">0</div>
+        <div class="stat-label">在线工具</div>
+      </div>
+      <div class="glass-card stat-card">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-label">技术栈</div>
+      </div>
+      <div class="glass-card stat-card">
+        <div class="stat-number" data-target="3">0</div>
+        <div class="stat-label">年经验</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Contact 区 ========== -->
+  <section class="contact section" id="contact">
+    <div class="section-header">
+      <h2 class="section-title">联系我</h2>
+      <div class="section-line"></div>
+      <p class="section-sub">有合作想法？欢迎随时联系</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="glass-card contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>邮箱</h4>
+            <p>kuailj@163.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <div>
+            <h4>GitHub</h4>
+            <p>github.com/kuailj1117-eng</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>位置</h4>
+            <p>中国</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="glass-card contact-form" id="contactForm">
+        <div class="form-group">
+          <input type="text" id="name" placeholder="你的名字" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="你的邮箱" required>
+        </div>
+        <div class="form-group">
+          <input type="text" id="subject" placeholder="主题">
+        </div>
+        <div class="form-group">
+          <textarea id="message" rows="5" placeholder="你的消息..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <i class="fas fa-paper-plane"></i> 发送消息
+        </button>
+        <p id="formMsg" class="form-msg"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">KLJ<span class="accent">.</span></div>
+      <p class="footer-text">用代码创造价值 · 用 AI 加速开发</p>
+      <div class="footer-social">
+        <a href="https://github.com/kuailj1117-eng" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:kuailj@163.com"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-weixin"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2026 KuaiLJ · Built with ❤️ &amp; Claude Code</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

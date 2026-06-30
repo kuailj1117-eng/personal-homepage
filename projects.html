@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | KuaiLJ</title>
+  <meta name="description" content="KuaiLJ's projects - web apps, AI tools, and creative coding.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <canvas id="heroVideoBg" aria-hidden="true"></canvas>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="KuaiLJ home">KLJ</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#work" class="nav-link">Work</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button class="mobile-menu" id="mobileMenu" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-headline">
+        Selected <span class="text-accent">Projects</span>
+      </h1>
+      <p class="page-sub">Every project ships with real code, real demos, and real lessons learned.</p>
+    </div>
+  </section>
+
+  <!-- Project Detail Cards -->
+  <section class="section">
+    <div class="section-container">
+
+      <!-- Dev Toolbox -->
+      <div class="project-detail glass-card reveal">
+        <div class="project-detail-img" style="background:linear-gradient(160deg, #a855f7 0%, #7c3aed 50%, #ec4899 100%)">
+          <i class="fas fa-toolbox"></i>
+        </div>
+        <div class="project-detail-body">
+          <div class="project-detail-header">
+            <h2>Dev Toolbox</h2>
+            <span class="project-status">Live</span>
+          </div>
+          <p class="project-detail-desc">
+            A collection of 26 online development utilities: Base64/URL encoding, MD5/SHA256 hashing,
+            timestamp conversion, color conversion, unit conversion, text processing, and more.
+            Dual-deployed to GitHub Pages (China) and Vercel (global) with automatic region detection.
+          </p>
+          <div class="project-detail-features">
+            <h4>Features</h4>
+            <ul>
+              <li>Dark/light theme with localStorage persistence</li>
+              <li>Tool favorites and recent-usage tracking</li>
+              <li>Smart search with Ctrl+K keyboard shortcut</li>
+              <li>URL hash support for direct tool access</li>
+              <li>Auto-detects backend availability for region-aware routing</li>
+            </ul>
+          </div>
+          <div class="project-detail-tech">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>Express</span><span>Vercel</span><span>GitHub Pages</span>
+          </div>
+          <div class="project-detail-links">
+            <a href="https://github.com/kuailj1117-eng/demo-deploy" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Source
+            </a>
+            <a href="https://demo-deploy-ashy.vercel.app" target="_blank" class="btn btn-ghost">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gesture Recognition -->
+      <div class="project-detail glass-card reveal">
+        <div class="project-detail-img" style="background:linear-gradient(160deg, #ec4899 0%, #be185d 50%, #f59e0b 100%)">
+          <i class="fas fa-hand-paper"></i>
+        </div>
+        <div class="project-detail-body">
+          <div class="project-detail-header">
+            <h2>Gesture Recognition System</h2>
+            <span class="project-status status-tool">Tool</span>
+          </div>
+          <p class="project-detail-desc">
+            Real-time hand gesture recognition using pure OpenCV (no MediaPipe dependency at runtime).
+            Skin-color detection with HSV masking, contour analysis, convex hull finger counting.
+            Five interactive modes in a single unified app.
+          </p>
+          <div class="project-detail-features">
+            <h4>Features</h4>
+            <ul>
+              <li>Finger counting with convexity defect analysis</li>
+              <li>Virtual mouse controlled by hand position</li>
+              <li>Drawing canvas with palm gestures</li>
+              <li>Rock-Paper-Scissors game against hand tracking</li>
+              <li>Real-time hand contour visualization</li>
+            </ul>
+          </div>
+          <div class="project-detail-tech">
+            <span>Python</span><span>OpenCV</span><span>NumPy</span><span>Computer Vision</span>
+          </div>
+          <div class="project-detail-links">
+            <a href="https://github.com/kuailj1117-eng/hand-gesture" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Space War -->
+      <div class="project-detail glass-card reveal">
+        <div class="project-detail-img" style="background:linear-gradient(160deg, #06b6d4 0%, #0891b2 50%, #a855f7 100%)">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="project-detail-body">
+          <div class="project-detail-header">
+            <h2>Space War Game</h2>
+            <span class="project-status status-game">Game</span>
+          </div>
+          <p class="project-detail-desc">
+            A Pygame space shooter with dual control modes: traditional keyboard and OpenCV-based
+            hand gesture control. Wave system with normal, fast, and tank enemies. Particle effects,
+            score tracking, and boss encounters.
+          </p>
+          <div class="project-detail-features">
+            <h4>Features</h4>
+            <ul>
+              <li>Keyboard and webcam gesture dual-control</li>
+              <li>Multiple enemy types with distinct behaviors</li>
+              <li>Particle explosion effects</li>
+              <li>Wave progression system with increasing difficulty</li>
+              <li>Game menu, scoring, and restart flow</li>
+            </ul>
+          </div>
+          <div class="project-detail-tech">
+            <span>Python</span><span>Pygame</span><span>OpenCV</span><span>Game Dev</span>
+          </div>
+          <div class="project-detail-links">
+            <a href="https://github.com/kuailj1117-eng/space-war" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campus Market -->
+      <div class="project-detail glass-card reveal">
+        <div class="project-detail-img" style="background:linear-gradient(160deg, #84cc16 0%, #65a30d 50%, #06b6d4 100%)">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="project-detail-body">
+          <div class="project-detail-header">
+            <h2>Campus Second-Hand Market</h2>
+            <span class="project-status">Full-stack</span>
+          </div>
+          <p class="project-detail-desc">
+            A campus trading platform with PHP REST API backend and vanilla JavaScript SPA frontend.
+            Glassmorphism UI design, hash-based routing, MySQL database with full e-commerce features.
+            Designed to run on XP Panel (小皮面板) for Chinese campus deployment.
+          </p>
+          <div class="project-detail-features">
+            <h4>Features</h4>
+            <ul>
+              <li>RESTful API with PHP single-entry router</li>
+              <li>SPA frontend with hash-based routing</li>
+              <li>Shopping cart, favorites, orders, messaging</li>
+              <li>Product search and category filtering</li>
+              <li>Glassmorphism UI with Font Awesome icons</li>
+            </ul>
+          </div>
+          <div class="project-detail-tech">
+            <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>REST API</span><span>SPA</span>
+          </div>
+          <div class="project-detail-links">
+            <a href="https://github.com/kuailj1117-eng/second-hand-market" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Generator -->
+      <div class="project-detail glass-card reveal">
+        <div class="project-detail-img" style="background:linear-gradient(160deg, #f59e0b 0%, #d97706 50%, #f43f5e 100%)">
+          <i class="fas fa-film"></i>
+        </div>
+        <div class="project-detail-body">
+          <div class="project-detail-header">
+            <h2>AI Video Generator (MCP)</h2>
+            <span class="project-status status-ai">AI</span>
+          </div>
+          <p class="project-detail-desc">
+            An MCP (Model Context Protocol) server that wraps MoviePy video generation capabilities.
+            Claude Code can directly invoke tools to create text-animation videos, image slideshows,
+            and code demo videos without leaving the terminal.
+          </p>
+          <div class="project-detail-features">
+            <h4>Features</h4>
+            <ul>
+              <li>MCP JSON-RPC server communicating via stdin/stdout</li>
+              <li>Text animation with customizable fonts, colors, and timing</li>
+              <li>Image slideshow with transition effects</li>
+              <li>Code demo video generation</li>
+              <li>No GPU required, pure CPU rendering</li>
+            </ul>
+          </div>
+          <div class="project-detail-tech">
+            <span>Python</span><span>MCP</span><span>MoviePy</span><span>AI Agent</span>
+          </div>
+          <div class="project-detail-links">
+            <a href="https://github.com/kuailj1117-eng/video-agent" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Doc Generator -->
+      <div class="project-detail glass-card reveal">
+        <div class="project-detail-img" style="background:linear-gradient(160deg, #6366f1 0%, #4f46e5 50%, #a855f7 100%)">
+          <i class="fas fa-file-word"></i>
+        </div>
+        <div class="project-detail-body">
+          <div class="project-detail-header">
+            <h2>Skills Documentation Generator</h2>
+            <span class="project-status status-ai">AI</span>
+          </div>
+          <p class="project-detail-desc">
+            Automatically reads installed Claude Code skills from the local filesystem and generates
+            a comprehensive Chinese-language Microsoft Word manual with formatted descriptions,
+            usage guides, and categorized skill listings.
+          </p>
+          <div class="project-detail-features">
+            <h4>Features</h4>
+            <ul>
+              <li>Auto-discovers all installed Claude Code skills</li>
+              <li>Generates formatted Word document with styles</li>
+              <li>Chinese-language output with categorized sections</li>
+              <li>Extracts skill metadata from SKILL.md frontmatter</li>
+            </ul>
+          </div>
+          <div class="project-detail-tech">
+            <span>Python</span><span>python-docx</span><span>Claude API</span>
+          </div>
+          <div class="project-detail-links">
+            <a href="https://github.com/kuailj1117-eng/skills-doc" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Source
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a href="index.html" class="footer-logo">KLJ</a>
+        <span class="footer-tagline">Built with care, shipped with confidence.</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/kuailj1117-eng" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:kuailj@163.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 KuaiLJ</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

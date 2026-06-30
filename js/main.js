@@ -8,6 +8,106 @@
   'use strict';
 
   /* ==========================================================
+     0. Video-like Flow Field Background (Hero Canvas)
+     ========================================================== */
+  const heroCanvas = document.getElementById('heroVideoBg');
+  const heroCtx = heroCanvas.getContext('2d');
+  let flowTime = 0;
+  let flowAnimId;
+
+  function resizeHeroCanvas() {
+    heroCanvas.width = window.innerWidth;
+    heroCanvas.height = window.innerHeight;
+  }
+
+  function drawFlowField() {
+    heroCtx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
+    flowTime += 0.004;
+
+    const w = heroCanvas.width;
+    const h = heroCanvas.height;
+
+    // Aurora wave 1 — purple/pink
+    heroCtx.save();
+    const grad1 = heroCtx.createLinearGradient(w * 0.3, h * 0.2, w * 0.7, h * 0.8);
+    grad1.addColorStop(0, 'rgba(168, 85, 247, 0)');
+    grad1.addColorStop(0.4, 'rgba(168, 85, 247, 0.06)');
+    grad1.addColorStop(0.7, 'rgba(236, 72, 153, 0.04)');
+    grad1.addColorStop(1, 'rgba(168, 85, 247, 0)');
+
+    heroCtx.beginPath();
+    const waveY1 = h * 0.25 + Math.sin(flowTime * 1.3) * 80;
+    const waveY2 = h * 0.45 + Math.cos(flowTime * 0.9) * 100;
+    heroCtx.moveTo(0, waveY1 - 120);
+    heroCtx.quadraticCurveTo(w * 0.4, waveY1 + 80, w, waveY2 - 60);
+    heroCtx.lineTo(w, waveY2 + 200);
+    heroCtx.quadraticCurveTo(w * 0.5, waveY2 + 120, 0, waveY1 + 160);
+    heroCtx.closePath();
+    heroCtx.fillStyle = grad1;
+    heroCtx.fill();
+    heroCtx.restore();
+
+    // Aurora wave 2 — cyan/blue
+    heroCtx.save();
+    const grad2 = heroCtx.createLinearGradient(w * 0.6, h * 0.5, w * 0.2, h);
+    grad2.addColorStop(0, 'rgba(6, 182, 212, 0)');
+    grad2.addColorStop(0.5, 'rgba(6, 182, 212, 0.05)');
+    grad2.addColorStop(0.8, 'rgba(168, 85, 247, 0.03)');
+    grad2.addColorStop(1, 'rgba(6, 182, 212, 0)');
+
+    heroCtx.beginPath();
+    const wy3 = h * 0.55 + Math.cos(flowTime * 0.7) * 90;
+    const wy4 = h * 0.75 + Math.sin(flowTime * 1.1) * 70;
+    heroCtx.moveTo(0, wy3 - 100);
+    heroCtx.quadraticCurveTo(w * 0.6, wy3 + 90, w, wy4 - 80);
+    heroCtx.lineTo(w, wy4 + 180);
+    heroCtx.quadraticCurveTo(w * 0.3, wy4 + 100, 0, wy3 + 140);
+    heroCtx.closePath();
+    heroCtx.fillStyle = grad2;
+    heroCtx.fill();
+    heroCtx.restore();
+
+    // Floating light orbs
+    const orbs = [
+      { x: w * 0.15 + Math.sin(flowTime * 0.5) * 60, y: h * 0.3 + Math.cos(flowTime * 0.6) * 40, r: 160, c: '168,85,247', a: 0.04 },
+      { x: w * 0.75 + Math.cos(flowTime * 0.4) * 80, y: h * 0.6 + Math.sin(flowTime * 0.55) * 50, r: 200, c: '236,72,153', a: 0.03 },
+      { x: w * 0.5 + Math.sin(flowTime * 0.35) * 100, y: h * 0.8 + Math.cos(flowTime * 0.45) * 60, r: 180, c: '6,182,212', a: 0.035 },
+      { x: w * 0.35 + Math.cos(flowTime * 0.3) * 70, y: h * 0.15 + Math.sin(flowTime * 0.5) * 30, r: 130, c: '192,132,252', a: 0.05 },
+    ];
+
+    orbs.forEach(o => {
+      const g = heroCtx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+      g.addColorStop(0, `rgba(${o.c},${o.a * 2})`);
+      g.addColorStop(0.4, `rgba(${o.c},${o.a})`);
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      heroCtx.beginPath();
+      heroCtx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+      heroCtx.fillStyle = g;
+      heroCtx.fill();
+    });
+
+    // Floating light dots
+    for (let i = 0; i < 25; i++) {
+      const seed = i * 13.7;
+      const dx = (w * 0.5 + Math.sin(flowTime * 0.3 + seed) * w * 0.45);
+      const dy = (h * 0.5 + Math.cos(flowTime * 0.35 + seed) * h * 0.45);
+      const da = 0.12 + Math.sin(flowTime * 0.8 + seed) * 0.05;
+      heroCtx.beginPath();
+      heroCtx.arc(dx, dy, 1.2, 0, Math.PI * 2);
+      heroCtx.fillStyle = `rgba(255,255,255,${Math.max(0, da)})`;
+      heroCtx.fill();
+    }
+
+    flowAnimId = requestAnimationFrame(drawFlowField);
+  }
+
+  if (!prefersReduced) {
+    resizeHeroCanvas();
+    drawFlowField();
+    window.addEventListener('resize', resizeHeroCanvas);
+  }
+
+  /* ==========================================================
      1. Advanced Particle System
      ========================================================== */
   const canvas = document.getElementById('particles');

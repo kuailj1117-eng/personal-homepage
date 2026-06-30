@@ -4,395 +4,359 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KuaiLJ | 全栈开发者</title>
+  <title>KuaiLJ | Developer & Builder</title>
+  <meta name="description" content="KuaiLJ - full-stack developer, AI toolchain builder. Crafting elegant web applications.">
+
+  <!-- Fonts: Outfit (display) + Inter Tight (body) - self-host via CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-  <!-- ========== 粒子背景 ========== -->
-  <canvas id="particles"></canvas>
+  <!-- ========== Particles Canvas ========== -->
+  <canvas id="particles" aria-hidden="true"></canvas>
 
-  <!-- ========== 浮动光球（背景装饰） ========== -->
-  <div class="bg-orb bg-orb-1"></div>
-  <div class="bg-orb bg-orb-2"></div>
-  <div class="bg-orb bg-orb-3"></div>
+  <!-- ========== Background Orbs ========== -->
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
 
-  <!-- ========== 导航栏 ========== -->
+  <!-- ========== Navigation ========== -->
   <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">KLJ<span class="accent">.</span></a>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="KuaiLJ home">KLJ</a>
       <div class="nav-links">
-        <a href="#about" class="nav-link">关于</a>
-        <a href="#skills" class="nav-link">技能</a>
-        <a href="#projects" class="nav-link">项目</a>
-        <a href="#contact" class="nav-link">联系</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#craft" class="nav-link">Craft</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </div>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <i class="fas fa-sun"></i>
         </button>
-        <button class="mobile-menu" id="mobileMenu" aria-label="菜单">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- ========== Hero 区 ========== -->
+  <!-- ================================================================
+       HERO — Asymmetric Split (VARIANCE 8, MOTION 7, DENSITY 3)
+       Left: content block | Right: animated visual sphere
+       ================================================================ -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-avatar">
-        <div class="avatar-ring"></div>
-        <div class="avatar-inner">
-          <span>KLJ</span>
-        </div>
-      </div>
-      <h1 class="hero-title">
-        你好，我是 <span class="gradient-text">KuaiLJ</span>
-      </h1>
-      <div class="hero-subtitle">
-        <span class="typing-wrapper">
-          <span id="typing"></span><span class="cursor">|</span>
-        </span>
-      </div>
-      <p class="hero-desc">热爱构建优雅的 Web 应用，专注全栈开发与 AI 工具链</p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">
-          <i class="fas fa-rocket"></i> 查看作品
-        </a>
-        <a href="#contact" class="btn btn-outline">
-          <i class="fas fa-paper-plane"></i> 联系我
-        </a>
-      </div>
-      <div class="hero-social">
-        <a href="https://github.com/kuailj1117-eng" target="_blank" class="social-link" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:kuailj@163.com" class="social-link" title="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="#" class="social-link" title="微信">
-          <i class="fab fa-weixin"></i>
-        </a>
-        <a href="#" class="social-link" title="CSDN">
-          <i class="fas fa-blog"></i>
-        </a>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <span>向下滚动</span>
-      <i class="fas fa-chevron-down"></i>
-    </div>
-  </section>
-
-  <!-- ========== About 区 ========== -->
-  <section class="about section" id="about">
-    <div class="section-header">
-      <h2 class="section-title">关于我</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
-      <div class="glass-card about-card">
-        <div class="about-icon"><i class="fas fa-user-graduate"></i></div>
-        <h3>教育背景</h3>
-        <p>计算机科学与技术 · 本科</p>
-        <p class="card-sub">热爱技术探索，持续学习成长</p>
-      </div>
-      <div class="glass-card about-card">
-        <div class="about-icon"><i class="fas fa-code"></i></div>
-        <h3>开发经验</h3>
-        <p>全栈 Web 开发</p>
-        <p class="card-sub">React / Vue / Node.js / PHP</p>
-      </div>
-      <div class="glass-card about-card">
-        <div class="about-icon"><i class="fas fa-brain"></i></div>
-        <h3>AI & 工具链</h3>
-        <p>AI 辅助开发实践者</p>
-        <p class="card-sub">Claude Code / Copilot / Vibe Coding</p>
-      </div>
-      <div class="glass-card about-card">
-        <div class="about-icon"><i class="fas fa-heart"></i></div>
-        <h3>兴趣领域</h3>
-        <p>开源贡献 · 技术写作</p>
-        <p class="card-sub">工具类产品 · 开发者体验</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== Skills 区 ========== -->
-  <section class="skills section" id="skills">
-    <div class="section-header">
-      <h2 class="section-title">技术栈</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="skills-categories">
-      <!-- 前端 -->
-      <div class="glass-card skill-group">
-        <h3><i class="fas fa-desktop"></i> 前端</h3>
-        <div class="skill-tags">
-          <span class="skill-tag" data-level="95">HTML5</span>
-          <span class="skill-tag" data-level="90">CSS3</span>
-          <span class="skill-tag" data-level="88">JavaScript</span>
-          <span class="skill-tag" data-level="80">React</span>
-          <span class="skill-tag" data-level="75">Vue.js</span>
-          <span class="skill-tag" data-level="70">TypeScript</span>
+    <div class="hero-grid">
+      <!-- Left column: text content -->
+      <div class="hero-text">
+        <p class="hero-eyebrow">Developer & Builder</p>
+        <h1 class="hero-headline">
+          Building tools<br>
+          that <span class="text-accent">feel alive</span>
+        </h1>
+        <p class="hero-sub">
+          Full-stack developer crafting AI-powered workflows, gesture interfaces, and developer tooling. Code should be fast, interfaces should breathe.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            View projects
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            Get in touch
+          </a>
         </div>
       </div>
 
-      <!-- 后端 -->
-      <div class="glass-card skill-group">
-        <h3><i class="fas fa-server"></i> 后端</h3>
-        <div class="skill-tags">
-          <span class="skill-tag" data-level="85">Node.js</span>
-          <span class="skill-tag" data-level="80">PHP</span>
-          <span class="skill-tag" data-level="78">Python</span>
-          <span class="skill-tag" data-level="72">MySQL</span>
-          <span class="skill-tag" data-level="65">Redis</span>
-        </div>
-      </div>
-
-      <!-- 工具 -->
-      <div class="glass-card skill-group">
-        <h3><i class="fas fa-tools"></i> 工具 & 平台</h3>
-        <div class="skill-tags">
-          <span class="skill-tag" data-level="90">Git</span>
-          <span class="skill-tag" data-level="85">VS Code</span>
-          <span class="skill-tag" data-level="82">Linux</span>
-          <span class="skill-tag" data-level="78">Docker</span>
-          <span class="skill-tag" data-level="88">GitHub</span>
-          <span class="skill-tag" data-level="75">Vercel</span>
-        </div>
-      </div>
-
-      <!-- AI -->
-      <div class="glass-card skill-group">
-        <h3><i class="fas fa-robot"></i> AI & 自动化</h3>
-        <div class="skill-tags">
-          <span class="skill-tag" data-level="88">Claude Code</span>
-          <span class="skill-tag" data-level="82">Copilot</span>
-          <span class="skill-tag" data-level="70">MCP 协议</span>
-          <span class="skill-tag" data-level="75">Prompt Eng</span>
-          <span class="skill-tag" data-level="68">自动化部署</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== Projects 区 ========== -->
-  <section class="projects section" id="projects">
-    <div class="section-header">
-      <h2 class="section-title">项目作品</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="project-filters">
-      <button class="filter-btn active" data-filter="all">全部</button>
-      <button class="filter-btn" data-filter="web">Web 应用</button>
-      <button class="filter-btn" data-filter="tool">工具</button>
-      <button class="filter-btn" data-filter="ai">AI 项目</button>
-      <button class="filter-btn" data-filter="game">游戏</button>
-    </div>
-
-    <div class="projects-grid">
-      <!-- Dev工具箱 -->
-      <div class="glass-card project-card" data-category="web tool">
-        <div class="project-img">
-          <i class="fas fa-toolbox"></i>
-        </div>
-        <div class="project-info">
-          <h3>Dev 工具箱</h3>
-          <p>26 个在线开发工具集合：编码解码、加密哈希、单位换算、文本处理</p>
-          <div class="project-tech">
-            <span>HTML5</span><span>CSS3</span><span>Node.js</span><span>Vercel</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/kuailj1117-eng/demo-deploy" target="_blank"><i class="fab fa-github"></i> 源码</a>
-            <a href="https://demo-deploy-ashy.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i> 演示</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 手语识别 -->
-      <div class="glass-card project-card" data-category="ai">
-        <div class="project-img">
-          <i class="fas fa-hand-paper"></i>
-        </div>
-        <div class="project-info">
-          <h3>手势识别系统</h3>
-          <p>OpenCV 实时手势识别：手指计数、虚拟鼠标、绘画板、石头剪刀布游戏</p>
-          <div class="project-tech">
-            <span>Python</span><span>OpenCV</span><span>NumPy</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/kuailj1117-eng/hand-gesture" target="_blank"><i class="fab fa-github"></i> 源码</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 太空战机 -->
-      <div class="glass-card project-card" data-category="game">
-        <div class="project-img">
-          <i class="fas fa-rocket"></i>
-        </div>
-        <div class="project-info">
-          <h3>太空战机游戏</h3>
-          <p>Pygame 太空射击游戏，支持键盘和手势两种操控方式，多波敌人系统</p>
-          <div class="project-tech">
-            <span>Python</span><span>Pygame</span><span>OpenCV</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/kuailj1117-eng/space-war" target="_blank"><i class="fab fa-github"></i> 源码</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 校园二手 -->
-      <div class="glass-card project-card" data-category="web">
-        <div class="project-img">
-          <i class="fas fa-store"></i>
-        </div>
-        <div class="project-info">
-          <h3>校园二手市场</h3>
-          <p>PHP REST API + 原生 JS SPA，毛玻璃 UI，完整的电商功能</p>
-          <div class="project-tech">
-            <span>PHP</span><span>MySQL</span><span>JS SPA</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/kuailj1117-eng/second-hand-market" target="_blank"><i class="fab fa-github"></i> 源码</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 视频生成 MCP -->
-      <div class="glass-card project-card" data-category="ai tool">
-        <div class="project-img">
-          <i class="fas fa-film"></i>
-        </div>
-        <div class="project-info">
-          <h3>AI 视频生成器</h3>
-          <p>MCP 协议服务器，Claude Code 可直接调用生成文字动画/图片幻灯视频</p>
-          <div class="project-tech">
-            <span>Python</span><span>MCP</span><span>MoviePy</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/kuailj1117-eng/video-agent" target="_blank"><i class="fab fa-github"></i> 源码</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 技能文档生成 -->
-      <div class="glass-card project-card" data-category="tool ai">
-        <div class="project-img">
-          <i class="fas fa-file-word"></i>
-        </div>
-        <div class="project-info">
-          <h3>技能文档生成器</h3>
-          <p>自动读取 Claude Code Skills 配置，生成中文 Word 技能使用手册</p>
-          <div class="project-tech">
-            <span>Python</span><span>python-docx</span><span>Claude API</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/kuailj1117-eng/skills-doc" target="_blank"><i class="fab fa-github"></i> 源码</a>
+      <!-- Right column: animated visual -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-sphere">
+          <div class="sphere-ring ring-1"></div>
+          <div class="sphere-ring ring-2"></div>
+          <div class="sphere-ring ring-3"></div>
+          <div class="sphere-core">
+            <span class="sphere-initials">KLJ</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== Stats 区 ========== -->
-  <section class="stats section" id="stats">
-    <div class="stats-grid">
-      <div class="glass-card stat-card">
-        <div class="stat-number" data-target="6">0</div>
-        <div class="stat-label">完成项目</div>
-      </div>
-      <div class="glass-card stat-card">
-        <div class="stat-number" data-target="26">0</div>
-        <div class="stat-label">在线工具</div>
-      </div>
-      <div class="glass-card stat-card">
-        <div class="stat-number" data-target="15">0</div>
-        <div class="stat-label">技术栈</div>
-      </div>
-      <div class="glass-card stat-card">
-        <div class="stat-number" data-target="3">0</div>
-        <div class="stat-label">年经验</div>
+  <!-- ================================================================
+       WORK — Staggered split layout (not 3 equal cards)
+       ================================================================ -->
+  <section class="section" id="work">
+    <div class="section-container">
+      <h2 class="section-headline">What I do</h2>
+      <p class="section-sub">Three focus areas, one obsession: making things that work beautifully.</p>
+
+      <div class="work-grid">
+        <div class="work-card glass-card">
+          <div class="work-card-icon icon-purple">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="work-card-body">
+            <h3>Full-stack Engineering</h3>
+            <p>React, Node.js, PHP, Python. Building complete applications from database schema to pixel-perfect UI.</p>
+            <ul class="work-card-tags">
+              <li>React</li><li>Node.js</li><li>PHP</li><li>MySQL</li><li>Python</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="work-card glass-card work-card-offset">
+          <div class="work-card-icon icon-pink">
+            <i class="fas fa-wand-magic-sparkles"></i>
+          </div>
+          <div class="work-card-body">
+            <h3>AI & Automation</h3>
+            <p>Claude Code workflows, MCP servers, prompt engineering. Turning AI from a chatbox into a productive member of the dev team.</p>
+            <ul class="work-card-tags">
+              <li>Claude Code</li><li>MCP</li><li>Copilot</li><li>Automation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="work-card glass-card">
+          <div class="work-card-icon icon-cyan">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div class="work-card-body">
+            <h3>UI & Interaction Design</h3>
+            <p>Scroll-driven animations, particle systems, glassmorphism. Interfaces that feel tactile, responsive, and distinctly not AI-generated.</p>
+            <ul class="work-card-tags">
+              <li>CSS Animation</li><li>Canvas</li><li>GSAP</li><li>Glassmorphism</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== Contact 区 ========== -->
-  <section class="contact section" id="contact">
-    <div class="section-header">
-      <h2 class="section-title">联系我</h2>
-      <div class="section-line"></div>
-      <p class="section-sub">有合作想法？欢迎随时联系</p>
-    </div>
+  <!-- ================================================================
+       CRAFT — Technology skills (not 4 equal cards in a grid)
+       ================================================================ -->
+  <section class="section section-alt" id="craft">
+    <div class="section-container">
+      <h2 class="section-headline">Tech stack</h2>
+      <p class="section-sub">Tools and technologies I reach for daily.</p>
 
-    <div class="contact-grid">
-      <div class="glass-card contact-info">
-        <div class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <div>
-            <h4>邮箱</h4>
-            <p>kuailj@163.com</p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="fab fa-github"></i>
-          <div>
-            <h4>GitHub</h4>
-            <p>github.com/kuailj1117-eng</p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <div>
-            <h4>位置</h4>
-            <p>中国</p>
-          </div>
+      <div class="craft-marquee" aria-hidden="true">
+        <div class="craft-track">
+          <span class="craft-chip">HTML5</span>
+          <span class="craft-chip chip-accent">CSS3</span>
+          <span class="craft-chip">JavaScript</span>
+          <span class="craft-chip chip-accent">TypeScript</span>
+          <span class="craft-chip">React</span>
+          <span class="craft-chip chip-accent">Vue.js</span>
+          <span class="craft-chip">Node.js</span>
+          <span class="craft-chip chip-accent">PHP</span>
+          <span class="craft-chip">Python</span>
+          <span class="craft-chip chip-accent">MySQL</span>
+          <span class="craft-chip">Git</span>
+          <span class="craft-chip chip-accent">Docker</span>
+          <span class="craft-chip">VS Code</span>
+          <span class="craft-chip chip-accent">Linux</span>
+          <span class="craft-chip">Claude Code</span>
+          <span class="craft-chip chip-accent">MCP</span>
+          <!-- duplicate for seamless loop -->
+          <span class="craft-chip">HTML5</span>
+          <span class="craft-chip chip-accent">CSS3</span>
+          <span class="craft-chip">JavaScript</span>
+          <span class="craft-chip chip-accent">TypeScript</span>
+          <span class="craft-chip">React</span>
+          <span class="craft-chip chip-accent">Vue.js</span>
         </div>
       </div>
-
-      <form class="glass-card contact-form" id="contactForm">
-        <input type="hidden" name="_subject" value="个人主页新消息">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <div class="form-group">
-          <input type="text" id="name" name="name" placeholder="你的名字" required>
-        </div>
-        <div class="form-group">
-          <input type="email" id="email" name="email" placeholder="你的邮箱" required>
-        </div>
-        <div class="form-group">
-          <input type="text" id="subject" name="subject" placeholder="主题">
-        </div>
-        <div class="form-group">
-          <textarea id="message" name="message" rows="5" placeholder="你的消息..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-full">
-          <i class="fas fa-paper-plane"></i> 发送消息
-        </button>
-        <p id="formMsg" class="form-msg"></p>
-      </form>
     </div>
   </section>
 
-  <!-- ========== Footer ========== -->
+  <!-- ================================================================
+       PROJECTS — Bento-style grid with visual diversity
+       ================================================================ -->
+  <section class="section" id="projects">
+    <div class="section-container">
+      <h2 class="section-headline">Selected projects</h2>
+      <p class="section-sub">Six projects across web apps, AI tooling, and creative coding.</p>
+
+      <div class="projects-bento">
+        <!-- Featured: Dev Toolbox (large tile) -->
+        <a href="https://demo-deploy-ashy.vercel.app" target="_blank" class="project-tile tile-featured glass-card">
+          <div class="tile-bg tile-bg-1"></div>
+          <div class="tile-content">
+            <span class="tile-tag">Featured</span>
+            <h3 class="tile-title">Dev Toolbox</h3>
+            <p class="tile-desc">26 online dev utilities: encoding, hashing, unit conversion, text processing. Dual-deployed GitHub Pages + Vercel.</p>
+            <span class="tile-link">View live <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- Hand Gesture -->
+        <div class="project-tile glass-card">
+          <div class="tile-bg tile-bg-2"></div>
+          <div class="tile-content">
+            <h3 class="tile-title">Gesture Recognition</h3>
+            <p class="tile-desc">Real-time OpenCV hand tracking: finger counting, virtual mouse, Rock-Paper-Scissors game.</p>
+            <div class="tile-tech"><span>Python</span><span>OpenCV</span><span>NumPy</span></div>
+          </div>
+        </div>
+
+        <!-- Space War -->
+        <div class="project-tile glass-card">
+          <div class="tile-bg tile-bg-3"></div>
+          <div class="tile-content">
+            <h3 class="tile-title">Space War Game</h3>
+            <p class="tile-desc">Pygame shooter with keyboard and gesture dual-control. Wave system, particle effects, boss enemies.</p>
+            <div class="tile-tech"><span>Python</span><span>Pygame</span><span>OpenCV</span></div>
+          </div>
+        </div>
+
+        <!-- Second-hand Market -->
+        <div class="project-tile glass-card">
+          <div class="tile-bg tile-bg-4"></div>
+          <div class="tile-content">
+            <h3 class="tile-title">Campus Market</h3>
+            <p class="tile-desc">PHP REST API + vanilla JS SPA. Glassmorphism UI, full e-commerce features for campus second-hand trading.</p>
+            <div class="tile-tech"><span>PHP</span><span>MySQL</span><span>JS SPA</span></div>
+          </div>
+        </div>
+
+        <!-- Video Generator -->
+        <div class="project-tile glass-card">
+          <div class="tile-bg tile-bg-1"></div>
+          <div class="tile-content">
+            <h3 class="tile-title">AI Video Generator</h3>
+            <p class="tile-desc">MCP protocol server enabling Claude Code to generate text-animation and slideshow videos via MoviePy.</p>
+            <div class="tile-tech"><span>Python</span><span>MCP</span><span>MoviePy</span></div>
+          </div>
+        </div>
+
+        <!-- Skills Doc Generator -->
+        <div class="project-tile glass-card">
+          <div class="tile-bg tile-bg-3"></div>
+          <div class="tile-content">
+            <h3 class="tile-title">Skills Doc Generator</h3>
+            <p class="tile-desc">Auto-reads Claude Code skills config and generates a Chinese-language Word manual with full formatting.</p>
+            <div class="tile-tech"><span>Python</span><span>python-docx</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       STATS — Integrated inline stat strip
+       ================================================================ -->
+  <section class="section section-alt" id="stats">
+    <div class="section-container">
+      <div class="stats-strip glass-card">
+        <div class="stat-item">
+          <span class="stat-num" data-target="6">0</span>
+          <span class="stat-label">Projects shipped</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="26">0</span>
+          <span class="stat-label">Online tools</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="15">0</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="3">0</span>
+          <span class="stat-label">Years building</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       CONTACT — Split layout with form on right
+       ================================================================ -->
+  <section class="section" id="contact">
+    <div class="section-container">
+      <h2 class="section-headline">Get in touch</h2>
+      <p class="section-sub">Have a project in mind? Reach out and I will get back to you.</p>
+
+      <div class="contact-split">
+        <!-- Left: contact channels -->
+        <div class="contact-channels">
+          <div class="channel-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p>kuailj@163.com</p>
+            </div>
+          </div>
+          <div class="channel-item">
+            <i class="fab fa-github"></i>
+            <div>
+              <h4>GitHub</h4>
+              <p>github.com/kuailj1117-eng</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <form class="contact-form glass-card" id="contactForm">
+          <input type="hidden" name="_subject" value="Portfolio contact">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Send message
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          <p id="formMsg" class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-logo">KLJ<span class="accent">.</span></div>
-      <p class="footer-text">用代码创造价值 · 用 AI 加速开发</p>
-      <div class="footer-social">
-        <a href="https://github.com/kuailj1117-eng" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:kuailj@163.com"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-weixin"></i></a>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">KLJ</span>
+        <span class="footer-tagline">Built with care, shipped with confidence.</span>
       </div>
-      <p class="footer-copy">&copy; 2026 KuaiLJ · Built with ❤️ &amp; Claude Code</p>
+      <div class="footer-right">
+        <a href="https://github.com/kuailj1117-eng" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:kuailj@163.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
+    <p class="footer-copy">&copy; 2026 KuaiLJ</p>
   </footer>
 
   <script src="js/main.js"></script>
